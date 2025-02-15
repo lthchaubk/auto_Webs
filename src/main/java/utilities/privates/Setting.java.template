@@ -1,0 +1,10 @@
+package utilities.privates;
+
+/**
+ * Author: chaule
+ * Created_at: 15Jun2023
+ * Note:
+ */
+public class Setting {
+    public static final Users author = Users.SBH_SYSTEM;
+}

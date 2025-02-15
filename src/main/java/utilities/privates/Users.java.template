@@ -1,0 +1,35 @@
+package utilities.privates;
+
+/**
+ * Author: chaule
+ * Created_at: 15Jun2023
+ * Note:
+ * - larkIcon can get here: https://www.emojiengine.com/vi/meanings/
+ */
+public enum Users {
+    CHAU("Chaule", "\uD83D\uDCA5","#370fe0"),
+    SBH_SYSTEM("SBH_SYSTEM", "\uD83D\uDC7B","#dbaf60"),
+    ;
+
+    private String larkID;
+    private String larkIcon;
+    private String larkColor;
+
+    private Users(String larkID, String larkIcon, String larkColor) {
+        this.larkIcon = larkIcon;
+        this.larkID = larkID;
+        this.larkColor = larkColor;
+    }
+
+    public String getLarkID() {
+        return this.larkID;
+    }
+
+    public String getLarkIcon() {
+        return this.larkIcon;
+    }
+
+    public String getLarkColor() {
+        return this.larkColor;
+    }
+}

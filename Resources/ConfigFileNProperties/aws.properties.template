@@ -1,0 +1,8 @@
+#Mon Apr 18 10:39:09 ICT 2022
+aws_secret_access_key=
+aws_url_return_img_path=auto-test-web-output/img/
+aws_access_key_id=
+aws_namecard_bucket=sbh-qc
+aws_url_return_env_path=auto-test-web-output/
+aws_url_return_log_path=auto-test-web-output/log/
+aws_url_return_prefix=https://sbh-qc.s3.ap-southeast-1.amazonaws.com/

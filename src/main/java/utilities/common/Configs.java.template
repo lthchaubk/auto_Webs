@@ -1,0 +1,29 @@
+package utilities.common;
+
+import utilities.privates.Users;
+
+/**
+ * Author: chaule
+ * Created_at: 15Jun2023
+ * Note:
+ * 24Jun2023 - Chaule: remove isHookToSlack & add isHookToLark
+ */
+public class Configs {
+    public static final int ServerSleep = 1500;
+    public static final int ServerShallowSleep = 500;
+    public static final int ServerDeepSleep = 5000;
+
+    public static final Environments env = Environments.FINAN_DEV;
+    public static final Users user = Users.SBH_SYSTEM;
+    public static final Accounts account = Accounts.TEST_FINAN_BOOK;
+
+    public static final Browser browser = Browser.CHROME;
+
+    // use to call API => must be matching with all
+    public static final boolean isHeadlessMode = true;
+    public static final boolean isHookToLark = true;
+    public static final boolean onlyHookFailed = true;
+    public static final boolean isUploadToCloud = true; // up to S3
+
+    public static final boolean usedGrib = false;
+}

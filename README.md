@@ -30,24 +30,12 @@ $ open -e .bash_profile
 ```
 **Nhập các dòng sau vào .bash_profile, sau đó lưu lại:**
 ```
-export ANDROID_HOME=/Users/[username]/Library/Android/sdk
-export PATH=$ANDROID_HOME/platform-tools:$PATH
-export PATH=$ANDROID_HOME/tools:$PATH
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk
 export PATH=${JAVA_HOME}/Contents/Home/bin:$PATH
 export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 export PATH=$PATH:/opt/bin:$PATH
 ```
 <i>Mục đích là cái biến môi trường này sẽ chỉ về cái thư mục mà Java JDK được cài để có thể thực thi biên dịch và run code.</i>
-
-## II. Cài đặt Driver trình duyệt (Chrome):
-Kiểm tra version trình duyệt đang sử dụng <br>
-Vào trang [chrome driver](https://sites.google.com/a/chromium.org/chromedriver/downloads) để download driver tương ứng <br>
-Kiểm tra chromedriver đã cài đặt thông qua Terminal
-```
-$ chromedriver -v
-ChromeDriver 87.0.4280.88 (89e2380a3e36c3464b5dd1302349b1382549290d-refs/branch-heads/4280@{#1761})
-```
 
 ## III. Cài đặt Intellij IDEA và setup project
 
@@ -66,52 +54,3 @@ Click phải vào Maven, chọn Reimport
 driver.get(https://[usename]:[password]@url)
 Nếu password có ký tự đặc biệt: #,$, ... thì dùng unicode-converter để chuyển đổi
 ```
-## V. Bonus Selenium-Grib:
-1. Công dụng: Selenium-Grid cho phép người dùng thực thi kiểm thử trên nhiều máy khác nhau với nhiều trình duyệt khác nhau
-
-2. Thiết lập môi trường cho Selenium-Grid <br>
-   2.1. Selenium Server: download phiên bản mới nhất của Selenium Server ở [đây](https://www.selenium.dev/downloads/) <br>
-   2.2. Hub và Node: <br>
-    ***Start hub:*** <br>
-      ```
-      java –jar selenium-server-standalone-*.jar hub
-      ```
-    ***Start node:*** <br>
-      ```
-      java -Dwebdriver.chrome.driver="[driver path]" -jar selenium-server-*.jar node --hub [hubUrl]/register
-      ```
-    ***Update source:***
-    ```
-     URL hubUrl = new URL("[hubUrl]/wd/hub");
-     DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-     capabilities.setCapability(ChromeOptions.CAPABILITY,chromeOptions);
-     driver = new RemoteWebDriver(hubUrl, capabilities);
-    ```
-    ***UI track:*** http://localhost:4444/ui/index.html#/ <br>
-    ***Selenium-Grid UI:*** download Visgrid and run
-    ```
-    java -jar visgrid-*.jar
-    ```
-
-### Dockerizing our application
-
-#### Running our application in a container
-
-```bash
-make up
-```
-
-#### Stop and remove container
-
-```bash
-make down
-```
-
-#### Clean up dangling Docker images
-
-```bash
-make clean
-```
-
-#### Update `JAR_PACKAGE` URL in Dockerfile when deploy new `autoWebMarketplace.jar`
-  - `Amazon S3/Buckets/auto-test-bucket/packages/autoWebMarketplace.jar`
